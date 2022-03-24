@@ -1,15 +1,21 @@
 <template>
   <div class="app">
     <nav id ="nav" class="navbar navbar-expand-lg navbar-light bg-light">
+
       <a class="navbar-brand" href="#">
         <img src="@/assets/Fipugram.png" height="40" class="d-inline-block align-top" alt="" loading="lazy" />
       </a>
-
+      
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarToggler">
+        
+        <form id="search" class="navbar-form form-inline ml-auto">
+          <input v-model="store.searchTerm" class="form-control me-2" type="search" placeholder="Pretraga" aria-label="Search" />
+        </form>
+
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
             <router-link to="/" class="nav-link">Home</router-link> 
@@ -21,9 +27,6 @@
             <router-link to="/signup" class="nav-link">Signup</router-link>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Pretraga" aria-label="Search" />
-        </form>
       </div>
     </nav>
   </div>
@@ -33,6 +36,22 @@
   </div>
   <router-view/>
 </template>
+
+<script>
+import store from '@/store'
+
+export default{
+  name: 'app',
+  data(){
+    return{
+      searchText: '',
+      store: store
+    }
+  }
+};
+</script>
+
+
 
 <style lang="scss">
 #app {

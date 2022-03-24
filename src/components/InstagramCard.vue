@@ -1,24 +1,27 @@
 <template>
   <div class="card text-center">
   <div class="card-header">
-    Featured
+    {{info.description}}
   </div>
   <div class="card-body p-0">
-    <img class="card-img-top" src="https://picsum.photos/800" />
+    <img class="card-img-top" :src="info.url" />
   </div>
   <div class="card-footer text-muted">
-    2 days ago
+    {{info.time}}
   </div>
 </div>
 </template>
 
 <script>
 export default {
+  props: ['info'],
   name: 'InstagramCard',
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+.card{
+  margin-bottom: 20px;
+}
 </style>
